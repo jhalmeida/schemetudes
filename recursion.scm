@@ -23,3 +23,7 @@
     (sum-list (cdr l) (+ (car l) c))))
 
 ;A function that takes a list (ls) and an object (x) as arguments and returns a list removing x from ls
+(define (delete item l)
+  (if (equal? (car l) item)
+    (cdr l)
+    (cons (car l) (delete item (cdr l)))))
