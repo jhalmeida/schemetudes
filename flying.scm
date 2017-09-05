@@ -29,3 +29,11 @@
 (define flyingdistance
   (lambda (v theta)
     (distance (vx v (toradian theta)) (airtime (vy v (toradian theta))))))
+
+; combined into one function
+(define flydistance 
+  (lambda (v theta)
+    (let* ((vy (* v (sin (* theta (/ (* 4 (atan 1.0)) 180))))) 
+          (vx (* v (cos (* theta (/ (* 4 (atan 1.0)) 180)))))
+          (at (/ (* 2 vy) 9.8)))
+            (* vx at))))
