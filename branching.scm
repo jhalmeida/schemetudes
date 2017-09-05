@@ -39,3 +39,17 @@
     (if (or (< a 0) (< b 0) (< c 0))
       (* a b c)
       #f)))
+
+; The grade (A – D) of exam is determined by the score (score). Write a function that takes a score as an argument and returns a grade.
+;A if score ≥ 80
+;B if 60 ≤ score ≤ 79
+;C if 40 ≤ score ≤ 59
+;D if score < 40
+
+(define grade
+  (lambda (score)
+    (cond 
+      ((>= score 80) "A")
+      ((<= 60 score 79) "B")
+      ((<= 40 score 59) "C")
+      ((< score 40) "D"))))
