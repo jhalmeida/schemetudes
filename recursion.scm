@@ -4,7 +4,7 @@
       1
       (* n (fact (- n 1))))))
 
-(define facttail
+(define fact-tail
   (lambda (n c)
     (if (= n 1)
       c
@@ -27,3 +27,19 @@
   (if (equal? (car l) item)
     (cdr l)
     (cons (car l) (delete item (cdr l)))))
+
+;A function that takes a list (ls) and and an object (x) and returns the first position of x in ls.
+;The position is counted from 0. If x is not found in ls, the function returns #f.
+
+(define (index l item c)
+  (if (equal? (car l) item)
+    c
+    (if (equal? (cdr l) '())
+      #f
+      (index (cdr l) item (+ c 1)))))
+
+;my-reverse that reverse the order of list items
+(define (my-reverse l new)
+  (if (equal? (cdr l) '())
+    (cons (car l) new)
+    (my-reverse (cdr l) (cons (car l) new))))
