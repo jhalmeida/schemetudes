@@ -23,3 +23,11 @@
         (integer->char int)
         #f)
       #f)))
+
+; function returns product of three numbers if they are all positive
+
+(define posprod
+  (lambda (a b c)
+    (if (and (> a 0) (> b 0) (> c 0))
+      (* a b c)
+      #f)))
