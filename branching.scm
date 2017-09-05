@@ -31,3 +31,11 @@
     (if (and (> a 0) (> b 0) (> c 0))
       (* a b c)
       #f)))
+
+; function returns product of three numbers if one is negative
+
+(define negprod
+  (lambda (a b c)
+    (if (or (< a 0) (< b 0) (< c 0))
+      (* a b c)
+      #f)))
