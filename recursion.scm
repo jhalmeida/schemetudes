@@ -43,3 +43,29 @@
   (if (equal? (cdr l) '())
     (cons (car l) new)
     (my-reverse (cdr l) (cons (car l) new))))
+
+;Converting a string that represents a positive integer to the corresponding integer, 
+;i.e. "1232" → 1232. Input error check is not required
+
+; code goes here
+
+; using named let A function that takes a list (ls) and an object (x)
+; as arguments and returns a list removing x from ls.
+
+(define (delete-let l item)
+  (let loop((c l) (x item))
+    (if (equal? (car c) x)
+      (cdr c)
+      (cons (car c) (loop (cdr c) x)))))
+
+; using named let A function that takes a list (ls) and and an object (x) and returns the first position of x in ls.
+;The position is counted from 0. If x is not found in ls, the function returns #f.
+
+(define (index-let l item)
+  (let loop((c l) (x item) (index 0))
+    (if (equal? (car c) item)
+      index
+      (if (equal? (cdr c) '())
+        #f
+        (loop (cdr c) x (+ index 1))))))
+
