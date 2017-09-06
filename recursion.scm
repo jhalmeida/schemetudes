@@ -69,3 +69,12 @@
         #f
         (loop (cdr c) x (+ index 1))))))
 
+;The function range that returns a list of numbers from 0 to n (not including n).
+
+(define (range num)
+  (let loop((limit num) (i 0) (l '()))
+    (if (>= i limit)
+      (reverse l)
+      (loop limit (+ i 1) (cons i l)))))
+
+
