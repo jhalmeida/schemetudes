@@ -77,4 +77,29 @@
       (reverse l)
       (loop limit (+ i 1) (cons i l)))))
 
+(define (fact-letrec n)
+  (letrec ((iter (lambda (n1 p)
+       (if (= n1 1)
+           p
+           (let ((m (- n1 1)))
+       (iter m (* p m)))))))     ; *
+    (iter n n)))
+
+;Using letrec A function that counts the number of list items, my-length.
+(define (my-length-rec l)
+  (letrec ((iter (lambda (l c)
+    (if (equal? (cdr l) '())
+      c
+      (iter (cdr l) (+ c 1))))))
+    (iter l 1)))
+
+;Using letrec A function that summarizes numbers in a list
+
+(define (summarize-rec l)
+  (letrec ((iter (lambda (l c)
+    (if (equal? (cdr l) '())
+      (+ (car l) c)
+      (iter (cdr l) (+ c (car l)))))))
+    (iter l 0)))
+
 
